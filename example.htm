@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Data Changed Event Example</title>
+</head>
+<body>
+<div id="element1" data-time="123"></div>
+<button id="button1">Change Data</button>
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+<script src="jquery.datachangeevt.js"></script>
+<script>
+    (function ($) {
+        $('#button1').on('click', function (e) {
+            $('#element1').data('time', (new Date().getTime()));
+        });
+        $('#element1').on('dataChange', function (e, field, data) {
+            console.log('data changed', e, field, data);
+        });
+    })(jQuery);
+</script>
+</body>
+</html>
